@@ -14,6 +14,9 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { ThemeModule } from './@theme/theme.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import {SessionCheckService} from './utils/sessionchecker';
+import {HttpInterceptor} from './utils/httpInterceptor';
+import {HttpModule} from '@angular/http';
 
 @NgModule({
   declarations: [AppComponent],
@@ -22,7 +25,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     BrowserAnimationsModule,
     HttpClientModule,
     AppRoutingModule,
-
+    HttpModule,
     NgbModule.forRoot(),
     ThemeModule.forRoot(),
     CoreModule.forRoot(),
@@ -30,6 +33,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
   bootstrap: [AppComponent],
   providers: [
     { provide: APP_BASE_HREF, useValue: '/' },
+    HttpInterceptor,
+    SessionCheckService,
   ],
 })
 export class AppModule {

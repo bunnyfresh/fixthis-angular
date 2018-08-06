@@ -1,13 +1,13 @@
 import { JwtHelperService } from '@auth0/angular-jwt';
 import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs';
+
 @Injectable()
 export class SessionCheckService {
-   constructor() {};
+   constructor() {}
 
    public validate(token: string): Observable<any> {
-      var jwtHelper = new JwtHelperService();
+      const jwtHelper = new JwtHelperService();
       return Observable.interval(60).map((x) => !jwtHelper.isTokenExpired(token));
    }
-
 }

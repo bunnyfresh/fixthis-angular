@@ -10,4 +10,5 @@
 
 export const environment = {
   production: false,
+  api_end_point: 'http://localhost:3000/api/',
 };

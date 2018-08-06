@@ -1,6 +1,8 @@
-import {Component, OnDestroy} from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { NbThemeService } from '@nebular/theme';
 import { takeWhile } from 'rxjs/operators/takeWhile' ;
+import { DashboardService } from './dashboard.service';
+import { Subscription } from 'rxjs';
 
 interface CardSettings {
   title: string;
@@ -13,27 +15,34 @@ interface CardSettings {
   selector: 'ngx-dashboard',
   styleUrls: ['./dashboard.component.scss'],
   templateUrl: './dashboard.component.html',
+  providers: [DashboardService],
 })
-export class DashboardComponent implements OnDestroy {
+export class DashboardComponent implements OnInit, OnDestroy {
 
   private alive = true;
+
+  private totalUsers: number = 0;
+  private totalJobs: number = 0;
+  private completedJobs: number = 0;
+
+  subscriptions: Subscription = new Subscription;
 
   totalUsersCard: CardSettings = {
     title: 'Total Users',
     iconClass: 'fa fa-users',
-    text: '123',
+    text: this.totalUsers.toString(),
     type: 'primary',
   };
   totalJobsCard: CardSettings = {
     title: 'Total Jobs',
     iconClass: 'ion-briefcase',
-    text: '321',
+    text: this.totalJobs.toString(),
     type: 'success',
   };
   completedJobsCard: CardSettings = {
     title: 'Completed Jobs',
     iconClass: 'ion-checkmark-circled',
-    text: '123',
+    text: this.completedJobs.toString(),
     type: 'warning',
   };
 
@@ -68,12 +77,35 @@ export class DashboardComponent implements OnDestroy {
     ],
   };
 
-  constructor(private themeService: NbThemeService) {
+  constructor(private themeService: NbThemeService,
+              private _dashboardService: DashboardService) {
     this.themeService.getJsTheme()
       .pipe(takeWhile(() => this.alive))
       .subscribe(theme => {
         this.statusCards = this.statusCardsByThemes['default'];
     });
+  }
+
+  getGraphCount() {
+    const me = this;
+    const graphCountSubscription = this._dashboardService.getGraphCount().subscribe(response => {
+      const responseData = response.data;
+      me.totalUsers = responseData.total_users;
+      me.totalJobs = responseData.total_jobs;
+      me.completedJobs = responseData.completed_jobs;
+
+      me.commonStatusCardsSet[0].text = this.totalUsers.toString();
+      me.commonStatusCardsSet[1].text = this.totalJobs.toString();
+      me.commonStatusCardsSet[2].text = this.completedJobs.toString();
+
+    }, error => {
+
+    });
+    me.subscriptions.add(graphCountSubscription);
+  }
+
+  ngOnInit() {
+    this.getGraphCount();
   }
 
   ngOnDestroy() {

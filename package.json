@@ -76,7 +76,8 @@
     "tinymce": "4.5.7",
     "typeface-exo": "0.0.22",
     "web-animations-js": "2.2.5",
-    "zone.js": "^0.8.26"
+    "zone.js": "^0.8.26",
+    "@auth0/angular-jwt": "latest"
   },
   "devDependencies": {
     "@angular/cli": "6.0.0",

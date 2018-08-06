@@ -22,9 +22,9 @@ import { StateService } from '../../../@core/data/state.service';
       </nb-layout-header>
 
       <nb-sidebar class="menu-sidebar"
-                   tag="menu-sidebar"
-                   responsive
-                   [end]="sidebar.id === 'end'">
+                  tag="menu-sidebar"
+                  responsive
+                  [end]="sidebar.id === 'end'">
         <ng-content select="nb-menu"></ng-content>
       </nb-sidebar>
 
