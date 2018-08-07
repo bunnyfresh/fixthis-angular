@@ -11,12 +11,12 @@ export const MENU_ITEMS: NbMenuItem[] = [
   {
     title: 'Users',
     icon: 'nb-person',
-    link: '/pages/ui-features/buttons',
+    link: '/pages/users',
   },
   {
     title: 'Jobs',
     icon: 'ion-clipboard',
-    link: '/pages/ui-features/buttons',
+    link: '/pages/jobs',
   },
   {
     title: 'Categories',
