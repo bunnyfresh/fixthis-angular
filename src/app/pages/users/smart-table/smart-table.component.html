@@ -1,11 +1,23 @@
-<toaster-container></toaster-container>
-<nb-card>
-  <nb-card-header>
-    Users Table
-  </nb-card-header>
+<toaster-container [toasterconfig]="config"></toaster-container>
 
-  <nb-card-body>
-    <ng2-smart-table [settings]="settings" [source]="source" (editConfirm)="onEditConfirm($event)" (deleteConfirm)="onDeleteConfirm($event)">
-    </ng2-smart-table>
-  </nb-card-body>
-</nb-card>
+    <nb-card>
+      <nb-card-header>
+        Users Table
+      </nb-card-header>
+
+      <nb-card-body>
+
+        <ng2-smart-table [settings]="settings" [source]="source" (editConfirm)="onEditConfirm($event)" (deleteConfirm)="onDeleteConfirm($event)">
+        </ng2-smart-table>
+
+      </nb-card-body>
+    </nb-card>
+
+<div class="row">
+  <div class="col-md-6">
+    <ngx-add-layout></ngx-add-layout>
+  </div>
+  <div class="col-md-6">
+    <ngx-modify-layout></ngx-modify-layout>
+  </div>
+</div>

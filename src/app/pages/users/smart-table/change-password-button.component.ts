@@ -22,21 +22,12 @@ export class PasswordButtonComponent implements OnInit {
   }
 
   changePassword() {
-    this.config = new ToasterConfig({
-      positionClass: 'toast-top-right',
-      timeout: 10000,
-      newestOnTop: true,
-      tapToDismiss: true,
-      preventDuplicates: true,
-      animation: 'slideDown',
-      limit: 3,
-    });
     const toast: Toast = {
-      type: 'info',
+      type: 'default',
       title: null,
       body: 'Mail sent!',
-      timeout: 10000,
-      showCloseButton: true,
+      timeout: 5000,
+      showCloseButton: false,
       bodyOutputType: BodyOutputType.TrustedHtml,
     };
     this.toasterService.popAsync(toast);

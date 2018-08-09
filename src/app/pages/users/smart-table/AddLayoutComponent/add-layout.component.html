@@ -1,0 +1,131 @@
+
+<nb-card>
+  <nb-card-header>Add user</nb-card-header>
+  <nb-card-body>
+    <form [formGroup]="userHandlerForm" (ngSubmit)="addNewUser(userHandlerForm.value)">
+      <div class="form-group row" style="text-align: center;">
+        <div class="col-sm-9">
+          General Information
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="fname" class="col-sm-3 col-form-label">First Name</label>
+        <div class="col-sm-9">
+          <input type="text" class="form-control" id="fname" formControlName="fname" placeholder="First Name">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="lname" class="col-sm-3 col-form-label">Last name</label>
+        <div class="col-sm-9">
+          <input type="text" class="form-control" id="lname" formControlName="lname" placeholder="Last name">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="tag" class="col-sm-3 col-form-label">Tagline</label>
+        <div class="col-sm-9">
+          <input type="text" class="form-control" id="tag" formControlName="tag" placeholder="Tagline">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="about" class="col-sm-3 col-form-label">About me</label>
+        <div class="col-sm-9">
+          <input type="text" class="form-control" id="about" formControlName="about" placeholder="About me">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="date" class="col-sm-3 col-form-label">Date of Birth</label>
+        <div class="col-sm-9">
+          <input type="text" class="form-control" id="date" formControlName="date" placeholder="MM/DD/YYYY">
+        </div>
+      </div>
+      <div class="form-group row" style="text-align: center;">
+        <div class="col-sm-9">
+          Type and Location
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="location" class="col-sm-3 col-form-label">Location</label>
+        <div class="col-sm-9">
+          <input type="text" class="form-control" id="location" formControlName="location" placeholder="Location">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-sm-3">User type</label>
+        <div class="col-sm-9">
+          <div class="form-check">
+            <label class="custom-control custom-radio">
+              <input type="radio" class="custom-control-input" value="Poster" name="userType" formControlName="userType" checked>
+              <span class="custom-control-indicator"></span>
+              <span class="custom-control-description">Poster</span>
+            </label>
+          </div>
+          <div class="form-check">
+            <label class="custom-control custom-radio">
+              <input type="radio" class="custom-control-input" value="Fixer" name="userType" formControlName="userType">
+              <span class="custom-control-indicator"></span>
+              <span class="custom-control-description">Fixer</span>
+            </label>
+          </div>
+        </div>
+      </div>
+      <div class="form-group row" style="text-align: center;">
+        <div class="col-sm-9">
+          Contacts
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="email" class="col-sm-3 col-form-label">Email</label>
+        <div class="col-sm-9">
+          <input type="email" class="form-control" id="email" formControlName="email" placeholder="Email">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="phone" class="col-sm-3 col-form-label">Phone</label>
+        <div class="col-sm-9">
+          <input type="text" class="form-control" id="phone" formControlName="phone" placeholder="Phone">
+        </div>
+      </div>
+      <div class="form-group row" style="text-align: center;">
+        <div class="col-sm-9">
+          Skills
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="transportation" class="col-sm-3 col-form-label">Transportation</label>
+        <div class="col-sm-9">
+          <input type="text" class="form-control" id="transportation" formControlName="transportation" placeholder="Transportation">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="languages" class="col-sm-3 col-form-label">Languages</label>
+        <div class="col-sm-9">
+          <input type="text" class="form-control" id="languages" formControlName="languages" placeholder="Languages">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="work" class="col-sm-3 col-form-label">Work</label>
+        <div class="col-sm-9">
+          <input type="text" class="form-control" id="work" formControlName="work" placeholder="Work">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="education" class="col-sm-3 col-form-label">Education</label>
+        <div class="col-sm-9">
+          <input type="text" class="form-control" id="education" formControlName="education" placeholder="Education">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="scpeciality" class="col-sm-3 col-form-label">Speciality</label>
+        <div class="col-sm-9">
+          <input type="text" class="form-control" id="scpeciality" formControlName="scpeciality" placeholder="Speciality">
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <div class="offset-sm-3 col-sm-9">
+          <button type="submit" class="btn btn-primary">Add</button>
+        </div>
+      </div>
+    </form>
+  </nb-card-body>
+</nb-card>

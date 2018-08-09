@@ -21,27 +21,27 @@ export const MENU_ITEMS: NbMenuItem[] = [
   {
     title: 'Categories',
     icon: 'nb-grid-b',
-    link: '/pages/ui-features/buttons',
+    link: '/pages/categories',
   },
   {
     title: 'Transactions',
     icon: 'ion-card',
-    link: '/pages/ui-features/buttons',
+    link: '/pages/transactions',
   },
   {
     title: 'Geolocation',
     icon: 'nb-location',
-    link: '/pages/ui-features/buttons',
+    link: '/pages/geolocation',
   },
   {
     title: 'Analytics',
     icon: 'nb-bar-chart',
-    link: '/pages/ui-features/buttons',
+    link: '/pages/analytics',
   },
   {
     title: 'Logout',
     icon: 'nb-locked',
-    link: '/pages/ui-features/buttons',
+    link: '/pages/logout',
   },
   /*
   {

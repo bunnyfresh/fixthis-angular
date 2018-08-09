@@ -1,0 +1,127 @@
+
+<nb-card>
+  <nb-card-header>Modify job</nb-card-header>
+  <nb-card-body>
+    <form>
+      <div class="form-group row">
+        <label for="id" class="col-sm-3 col-form-label">Id</label>
+        <div class="col-sm-9">
+          <input type="text" class="form-control" id="id" placeholder="User id">
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <div class="offset-sm-3 col-sm-9">
+          <button type="submit" class="btn btn-primary">Find</button>
+        </div>
+      </div>
+    </form>
+    <form>
+      <div class="form-group row" style="text-align: center;">
+        <div class="col-sm-9">
+          General Information
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="jtitle" class="col-sm-3 col-form-label">Job Title</label>
+        <div class="col-sm-9">
+          <input type="text" class="form-control" id="jtitle" formControlName="jtitle" placeholder="Job Title">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="descr" class="col-sm-3 col-form-label">Job description</label>
+        <div class="col-sm-9">
+          <input type="text" class="form-control" id="descr" formControlName="descr">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="location" class="col-sm-3 col-form-label">Location</label>
+        <div class="col-sm-9">
+          <input type="text" class="form-control" id="location" formControlName="location" placeholder="Enter a location">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-sm-3">Job type</label>
+        <div class="col-sm-9">
+          <div class="form-check">
+            <label class="custom-control custom-radio">
+              <input type="radio" class="custom-control-input" value="Online" name="jtype" formControlName="jtype" checked>
+              <span class="custom-control-indicator"></span>
+              <span class="custom-control-description">Online</span>
+            </label>
+          </div>
+          <div class="form-check">
+            <label class="custom-control custom-radio">
+              <input type="radio" class="custom-control-input" value="Offline" name="jtype" formControlName="jtype" >
+              <span class="custom-control-indicator"></span>
+              <span class="custom-control-description">Offline</span>
+            </label>
+          </div>
+        </div>
+      </div>
+      <div class="form-group row" style="text-align: center;">
+        <div class="col-sm-9">
+          Category and user
+        </div>
+      </div>
+      <div class="form-group row">
+        <div class="offset-sm-3 col-sm-9">
+          <button type="submit" class="btn btn-primary">Caterogy</button>
+          <button type="submit" class="btn btn-info">Posted by</button>
+        </div>
+      </div>
+      <div class="form-group row" style="text-align: center;">
+        <div class="col-sm-9">
+          Price
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="price" class="col-sm-3 col-form-label">Job Price</label>
+        <div class="col-sm-9">
+          <input type="text" class="form-control" id="price" formControlName="price" placeholder="Location">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="hours" class="col-sm-3 col-form-label">Hours</label>
+        <div class="col-sm-9">
+          <input type="text" class="form-control" id="hours" formControlName="hours" placeholder="Location">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="noffixers" class="col-sm-3 col-form-label">No. of fixers</label>
+        <div class="col-sm-9">
+          <input type="text" class="form-control" id="noffixers" formControlName="noffixers" placeholder="Location">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="rate" class="col-sm-3 col-form-label">Hourly rate</label>
+        <div class="col-sm-9">
+          <input type="text" class="form-control" id="rate" formControlName="rate" placeholder="Location">
+        </div>
+      </div>
+      <div class="form-group row" style="text-align: center;">
+        <div class="col-sm-9">
+          Date
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="enddate" class="col-sm-3 col-form-label">Job end date</label>
+        <div class="col-sm-9">
+          <input type="email" class="form-control" id="enddate" formControlName="enddate" placeholder="HH:mm">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="endtime" class="col-sm-3 col-form-label">Job end time</label>
+        <div class="col-sm-9">
+          <input type="text" class="form-control" id="endtime" formControlName="endtime" placeholder="MM/DD/YYYY">
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <div class="offset-sm-3 col-sm-9">
+          <button type="submit" class="btn btn-primary">Add</button>
+        </div>
+      </div>
+    </form>
+  </nb-card-body>
+</nb-card>

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { LocalDataSource } from 'ng2-smart-table';
 
 import { SmartTableService } from '../../../@core/data/smart-table.service';
+import { JobsService} from '../jobs.service';
 
 @Component({
   selector: 'ngx-smart-table',
@@ -15,6 +16,10 @@ import { SmartTableService } from '../../../@core/data/smart-table.service';
 export class JobsSmartTableComponent {
 
   settings = {
+    actions: {
+      edit: false,
+      add: false,
+    },
     add: {
       addButtonContent: '<i class="nb-plus"></i>',
       createButtonContent: '<i class="nb-checkmark"></i>',
@@ -34,41 +39,66 @@ export class JobsSmartTableComponent {
         title: 'ID',
         type: 'number',
       },
-      firstName: {
-        title: 'First Name',
+      author: {
+        title: 'Posted by',
         type: 'string',
       },
-      lastName: {
-        title: 'Last Name',
+      price: {
+        title: 'Job Price',
         type: 'string',
       },
-      username: {
-        title: 'Username',
+      location: {
+        title: 'Location',
         type: 'string',
       },
-      email: {
-        title: 'E-mail',
+      date: {
+        title: 'Posted date',
         type: 'string',
       },
-      age: {
-        title: 'Age',
+      activity: {
+        title: 'Activity status',
         type: 'number',
       },
     },
   };
 
+  data = [];
+
   source: LocalDataSource = new LocalDataSource();
 
-  constructor(private service: SmartTableService) {
-    const data = this.service.getData();
-    this.source.load(data);
+  constructor(private service: SmartTableService,
+              private jobsService: JobsService) {
+    this.getJobsDataFromAPI().subscribe(responce => {
+      const data = responce;
+
+      this.data = [];
+      data.data.jobs.map(o => this.data.push({
+        id: o.id,
+        author: o.userId,
+        price: o.task_price,
+        location: o.location,
+        date: o.task_post_date,
+        activity: o.activity_status,
+      }));
+
+      this.source.load(this.data);
+    });
   }
 
   onDeleteConfirm(event): void {
     if (window.confirm('Are you sure you want to delete?')) {
+      this.jobsService.deleteJobAPI(event.data['id'], event.data['user_id']).subscribe(responce => {
+        if (responce.status == 200) {
+          event.confirm.resolve();
+        } else {
+          event.confirm.reject();
+        }
+      });
       event.confirm.resolve();
-    } else {
-      event.confirm.reject();
     }
+  }
+
+  getJobsDataFromAPI() {
+    return this.jobsService.getAllJobs(10000, 1, null, null, null);
   }
 }

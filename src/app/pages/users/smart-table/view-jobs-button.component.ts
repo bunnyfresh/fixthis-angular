@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import {UserService} from '../user.service';
 
 @Component({
   template: `
@@ -11,13 +12,13 @@ export class JobsButtonComponent implements OnInit {
 
   @Input() value;
 
-  constructor() {  }
+  constructor(private userService: UserService) {  }
 
   ngOnInit() {
     this.renderValue = this.value;
   }
 
   example() {
-    alert(this.renderValue);
+    alert('User id - ' + this.renderValue);
   }
 }
