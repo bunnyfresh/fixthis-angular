@@ -1,0 +1,21 @@
+<div class="login-bg">
+    <!-- start login -->
+    <div class="login-bx">
+        <div class="login-logo">
+            <a href="#" title="Fixthis"><img class="img-set" src="assets/images/login-logo2.png" alt="Fixthis"></a>
+        </div>
+
+        <form #loginForm="ngForm" role="form" class="bottom-75" (ngSubmit)="onLoginSubmit(loginForm.value)">
+            <div class="input-bx">
+                <input name="username" type="text" class="username" id="un" placeholder="EMAIL" ngModel #usernameRef="ngModel" required>
+                <p class="error" *ngIf="((usernameRef.errors?.required)&& (usernameRef.dirty || usernameRef.touched))">Please enter email</p>
+                <input name="password" type="password" class="password" id="ps" placeholder="PASSWORD" ngModel #passwordRef="ngModel">
+            </div>
+            <div class="remember-me">
+                <a href="#" title="Forgot Password" class="forgot-password">Forgot Password</a>
+            </div>
+            <input type="submit" value="Login" class="login-btn">
+        </form>
+    </div>
+    <!-- end login -->
+</div>

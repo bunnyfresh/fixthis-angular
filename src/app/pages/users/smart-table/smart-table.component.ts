@@ -21,6 +21,8 @@ import {ToasterConfig} from 'angular2-toaster';
 export class UsersSmartTableComponent {
   private JobsRenderComponent: any;
 
+  data = [];
+
   config = new ToasterConfig({
     positionClass: 'toast-top-right',
     timeout: 5000,
@@ -56,6 +58,7 @@ export class UsersSmartTableComponent {
       id: {
         title: 'ID',
         type: 'number',
+        sortDirection: 'asc',
       },
       firstName: {
         title: 'First Name',
@@ -77,16 +80,16 @@ export class UsersSmartTableComponent {
         title: 'Change password',
         type: 'custom',
         renderComponent: PasswordButtonComponent,
+        filter: false,
       },
       jobs: {
         title: 'View Jobs',
         type: 'custom',
         renderComponent: JobsButtonComponent,
+        filter: false,
       },
     },
   };
-
-  data = [];
 
   source: LocalDataSource = new LocalDataSource();
 

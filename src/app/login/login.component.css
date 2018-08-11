@@ -1,0 +1,104 @@
+/* Login Page */
+
+.login-bg {
+    position: fixed;
+    padding: 0;
+    margin: 0;
+    max-height: 100%;
+    top: 0;
+    left: 0;
+    overflow-y: auto;
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+}
+
+.login-bx {
+    width: 410px;
+    margin: 0 auto;
+}
+
+.login-logo {
+    width: 100%;
+    padding: 50px 100px 50px 100px;
+    text-align: center;
+}
+
+.input-bx {
+    background: #fff;
+    width: 100%;
+    padding: 0 25px;
+    border-radius: 15px;
+}
+
+.input-bx input {
+    width: 100%;
+    height: 70px;
+    line-height: 70px;
+    padding: 0 40px 0 10px;
+    color: #333;
+    border: 0;
+}
+
+.img-set{
+   width: 100%;
+   height: auto;
+}
+
+.input-bx input.username {
+    background: url(/assets/images/user-ico.png) no-repeat;
+    background-position: 330px center;
+    border-bottom: 1px solid #dbdbdb;
+}
+
+.input-bx input.password {
+    background: url(/assets/images/pass-ico.png) no-repeat;
+    background-position: 330px center;
+}
+
+.remember-me {
+    width: 100%;
+    height: 50px;
+    padding: 15px 0;
+    color: #fff;
+}
+
+.remember-me label {
+    padding-left: 10px;
+    font-weight: normal;
+}
+
+.forgot-password {
+    color: #333;
+    float: right;
+}
+
+.forgot-password:hover {
+    color: #333;
+    float: right;
+}
+
+.login-btn {
+    background: #9ed81e;
+    width: 100%;
+    height: 55px;
+    line-height: 55px;
+    color: #fff;
+    font-size: 18px;
+    text-align: center;
+    border-radius: 15px;
+    border: 0;
+}
+
+body {
+    overflow: hidden !important;
+}
+
+.login-btn {
+    cursor: pointer;
+}
+
+:host /deep/ .alert {
+    width: 100%;
+    margin-bottom: 10px;
+}

@@ -30,6 +30,6 @@ export class PasswordButtonComponent implements OnInit {
       showCloseButton: false,
       bodyOutputType: BodyOutputType.TrustedHtml,
     };
-    this.toasterService.popAsync(toast);
+    alert('Mail sent!');
   }
 }
