@@ -6,6 +6,7 @@ import {UserService} from '../../user.service';
   selector: 'ngx-add-layout',
   styleUrls: ['./add-layout.component.scss'],
   templateUrl: './add-layout.component.html',
+  providers: [UserService]
 })
 export class AddLayoutComponent implements OnInit {
 
@@ -13,7 +14,6 @@ export class AddLayoutComponent implements OnInit {
 
   ngOnInit() {
     this.userHandlerForm = this._fb.group({
-      fname: new FormControl('', Validators.required),
       lname: new FormControl('', Validators.required),
       email: new FormControl('', Validators.required),
       location: new FormControl('', Validators.required),

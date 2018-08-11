@@ -22,11 +22,23 @@ export class DashboardService {
       const apiUrl = AppSettings.API_ENDPOINT + `admin/dashboard`;
       const myHeaders = new Headers();
       myHeaders.append('Content-Type', 'application/json');
-      return this._http.get(apiUrl, true).map((res: Response) => { return res.json() })
+      return this._http.get(apiUrl, true).map((res: Response) => res.json())
          .catch((error: any) => {
             if (error.status > 400 || error.status === 500) {
                return Observable.throw(new Error(error.json()));
             }
          });
    }
+
+  getGraphInfo() {
+    const apiUrl = AppSettings.API_ENDPOINT + `admin/jobs-stat`;
+    const myHeaders = new Headers();
+    myHeaders.append('Content-Type', 'application/json');
+    return this._http.get(apiUrl, true).map((res: Response) => res.json())
+      .catch((error: any) => {
+        if (error.status > 400 || error.status === 500) {
+          return Observable.throw(new Error(error.json()));
+        }
+      });
+  }
 }

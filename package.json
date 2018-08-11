@@ -45,13 +45,14 @@
     "@angular/platform-browser-dynamic": "6.0.0",
     "@angular/router": "6.0.0",
     "@asymmetrik/ngx-leaflet": "3.0.1",
+    "@auth0/angular-jwt": "latest",
     "@nebular/auth": "2.0.0-rc.9",
     "@nebular/security": "2.0.0-rc.9",
     "@nebular/theme": "2.0.0-rc.9",
     "@ng-bootstrap/ng-bootstrap": "1.0.0",
     "@swimlane/ngx-charts": "7.0.1",
     "angular-tree-component": "7.2.0",
-    "angular2-chartjs": "0.4.1",
+    "angular2-chartjs": "^0.4.1",
     "angular2-toaster": "6.0.0",
     "bootstrap": "4.0.0",
     "chart.js": "2.7.1",
@@ -76,8 +77,7 @@
     "tinymce": "4.5.7",
     "typeface-exo": "0.0.22",
     "web-animations-js": "2.2.5",
-    "zone.js": "^0.8.26",
-    "@auth0/angular-jwt": "latest"
+    "zone.js": "^0.8.26"
   },
   "devDependencies": {
     "@angular/cli": "6.0.0",

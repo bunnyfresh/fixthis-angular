@@ -1,4 +1,3 @@
-<toaster-container [toasterconfig]="config"></toaster-container>
 
     <nb-card>
       <nb-card-header>
@@ -6,6 +5,7 @@
       </nb-card-header>
 
       <nb-card-body>
+        <toaster-container [toasterconfig]="config"></toaster-container>
 
         <ng2-smart-table [settings]="settings" [source]="source" (editConfirm)="onEditConfirm($event)" (deleteConfirm)="onDeleteConfirm($event)">
         </ng2-smart-table>
