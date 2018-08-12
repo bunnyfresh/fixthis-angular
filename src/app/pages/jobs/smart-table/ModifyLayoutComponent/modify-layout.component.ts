@@ -10,7 +10,7 @@ export class ModifyLayoutComponent implements OnInit {
   constructor(private _fb: FormBuilder) { }
 
   ngOnInit() {
-    this.userHandlerForm = this._fb.group({
+    this.jobHandlerForm = this._fb.group({
       jtitle: new FormControl('', Validators.required),
       descr: new FormControl('', Validators.required),
       location: new FormControl('', Validators.required),
@@ -24,12 +24,12 @@ export class ModifyLayoutComponent implements OnInit {
     });
   }
 
-  userHandlerForm: FormGroup;
+  jobHandlerForm: FormGroup;
 
-  modifyUser(value: any): void {
+  modifyJob(value: any): void {
     console.log(value);
-    console.log(this.userHandlerForm.controls);
-    if (this.userHandlerForm.valid) {
+    console.log(this.jobHandlerForm.controls);
+    if (this.jobHandlerForm.valid) {
       const data = value;
       alert(data);
     }

@@ -2,7 +2,7 @@
     <nb-card>
       <nb-card-header>Add job</nb-card-header>
       <nb-card-body>
-        <form>
+        <form [formGroup]="jobHandlerForm" (ngSubmit)="addJob(jobHandlerForm.value)">
           <div class="form-group row" style="text-align: center;">
             <div class="col-sm-9">
               General Information

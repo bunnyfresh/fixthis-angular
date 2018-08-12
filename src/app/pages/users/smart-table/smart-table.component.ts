@@ -21,6 +21,8 @@ import {ToasterConfig} from 'angular2-toaster';
 export class UsersSmartTableComponent {
   private JobsRenderComponent: any;
 
+  showMode:boolean = true;
+
   data = [];
 
   config = new ToasterConfig({

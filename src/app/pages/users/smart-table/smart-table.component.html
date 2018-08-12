@@ -1,19 +1,30 @@
-    <nb-card>
-      <nb-card-header>
-        Users Table
-      </nb-card-header>
 
-      <nb-card-body>
-        <ng2-smart-table [settings]="settings" [source]="source" (editConfirm)="onEditConfirm($event)" (deleteConfirm)="onDeleteConfirm($event)">
-        </ng2-smart-table>
-      </nb-card-body>
-    </nb-card>
+<nb-card>
+  <nb-card-header>
+    <button (click)="showMode = !showMode" class="btn btn-primary">
+      {{showMode ? 'Add or modify' : 'Show data' }}
+    </button>
+    <div style="text-align: center; ">
+      Users info
+    </div>
+  </nb-card-header>
 
-<div class="row">
-  <div class="col-md-6">
-    <ngx-add-layout></ngx-add-layout>
-  </div>
-  <div class="col-md-6">
-    <ngx-modify-layout></ngx-modify-layout>
-  </div>
-</div>
+  <nb-card-body *ngIf="showMode">
+    <ng2-smart-table
+      [settings]="settings"
+      [source]="source"
+      (deleteConfirm)="onDeleteConfirm($event)">
+    </ng2-smart-table>
+  </nb-card-body>
+
+  <nb-card-body *ngIf="!showMode">
+    <div class="row">
+      <div class="col-md-6">
+        <ngx-add-layout></ngx-add-layout>
+      </div>
+      <div class="col-md-6">
+        <ngx-modify-layout></ngx-modify-layout>
+      </div>
+    </div>
+  </nb-card-body>
+</nb-card>

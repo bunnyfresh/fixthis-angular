@@ -3,6 +3,7 @@ import { LocalDataSource } from 'ng2-smart-table';
 
 import { SmartTableService } from '../../../@core/data/smart-table.service';
 import { JobsService} from '../jobs.service';
+import {DateConverter} from '../../../utils/dateconverter';
 
 @Component({
   selector: 'ngx-smart-table',
@@ -14,6 +15,8 @@ import { JobsService} from '../jobs.service';
   `],
 })
 export class JobsSmartTableComponent {
+
+  showMode: boolean = true;
 
   settings = {
     actions: {
@@ -35,9 +38,10 @@ export class JobsSmartTableComponent {
       confirmDelete: true,
     },
     columns: {
-      id: {
+      task_id: {
         title: 'ID',
         type: 'number',
+        sortDirection: 'asc',
       },
       author: {
         title: 'Posted by',
@@ -73,11 +77,11 @@ export class JobsSmartTableComponent {
 
       this.data = [];
       data.data.jobs.map(o => this.data.push({
-        id: o.id,
-        author: o.userId,
+        task_id: o.task_id,
+        author: o.userDetails.fullname,
         price: o.task_price,
-        location: o.location,
-        date: o.task_post_date,
+        location: o.locationDetails.location,
+        date: DateConverter.timeConverter(o.task_post_date),
         activity: o.activity_status,
       }));
 

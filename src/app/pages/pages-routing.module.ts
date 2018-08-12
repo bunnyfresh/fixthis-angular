@@ -6,6 +6,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { NotFoundComponent } from './miscellaneous/not-found/not-found.component';
 import {UsersSmartTableComponent} from './users/smart-table/smart-table.component';
 import {JobsSmartTableComponent} from './jobs/smart-table/smart-table.component';
+import {ComingSoonComponent} from './miscellaneous/coming-soon/coming-soon.component';
 
 const routes: Routes = [{
   path: '',
@@ -19,6 +20,18 @@ const routes: Routes = [{
   }, {
     path: 'jobs',
     component: JobsSmartTableComponent,
+  }, {
+    path: 'categories',
+    component: ComingSoonComponent,
+  }, {
+    path: 'transactions',
+    component: ComingSoonComponent,
+  }, {
+    path: 'geolocation',
+    component: ComingSoonComponent,
+  }, {
+    path: 'analytics',
+    component: ComingSoonComponent,
   }, {
     path: 'ui-features',
     loadChildren: './ui-features/ui-features.module#UiFeaturesModule',

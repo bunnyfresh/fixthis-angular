@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { MiscellaneousComponent } from './miscellaneous.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import {ComingSoonComponent} from './coming-soon/coming-soon.component';
 
 const routes: Routes = [{
   path: '',
@@ -10,6 +11,9 @@ const routes: Routes = [{
   children: [{
     path: '404',
     component: NotFoundComponent,
+  }, {
+    path: 'comingSoon',
+    component: ComingSoonComponent,
   }],
 }];
 
@@ -22,4 +26,5 @@ export class MiscellaneousRoutingModule { }
 export const routedComponents = [
   MiscellaneousComponent,
   NotFoundComponent,
+  ComingSoonComponent,
 ];

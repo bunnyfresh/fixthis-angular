@@ -133,4 +133,20 @@ export class UserService {
         }
       });
   }
+
+  /**
+   *  function to change password of user
+   *  @param userId id of the user
+   *  **/
+  onChangePassword(userId) {
+    const userStatusParams = Qs.stringify({ "user_id": userId });
+    const headers = new Headers();
+    headers.append('Content-Type', 'multipart/form-data');
+    return this._http.post(AppSettings.API_ENDPOINT + `admin/user/resetpassword`, userStatusParams).map((res: Response) => { return res.json() })
+      .catch((error: any) => {
+        if (error.status > 400 || error.status === 500) {
+          return Observable.throw(new Error(error.json()));
+        }
+      });
+  }
 }
