@@ -107,6 +107,7 @@ export class UsersSmartTableComponent {
           lastName: o.last_name,
           email: o.email,
           location: o.location,
+          password: o.id,
           jobs: o.id,
       }));
 

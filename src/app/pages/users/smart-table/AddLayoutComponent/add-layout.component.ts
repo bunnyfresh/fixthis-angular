@@ -14,26 +14,26 @@ export class AddLayoutComponent implements OnInit {
 
   ngOnInit() {
     this.userHandlerForm = this._fb.group({
-      fname: new FormControl('', Validators.required),
-      lname: new FormControl('', Validators.required),
+      first_name: new FormControl('', Validators.required),
+      last_name: new FormControl('', Validators.required),
       email: new FormControl('', Validators.required),
       location: new FormControl('', Validators.required),
-      phone: new FormControl('', Validators.required),
-      tag: '',
+      mobile_number: new FormControl('', Validators.required),
+      tagline: '',
       about: '',
-      date: new FormControl('', Validators.required),
+      birth_date: new FormControl('', Validators.required),
       scpeciality: '',
       transportation: '',
       languages: '',
       work: '',
       education: '',
-      userType: new FormControl('', Validators.required),
+      isFixer: new FormControl('', Validators.required),
     });
   }
 
   userHandlerForm: FormGroup;
 
   addNewUser(value: any): void {
-      this._userService.addUserAPI(value, 201);
+      this._userService.submitUserData(value, '');
   }
 }

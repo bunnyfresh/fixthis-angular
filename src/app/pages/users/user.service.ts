@@ -62,26 +62,14 @@ export class UserService {
                       });
   }
 
-  addUserAPI(formSubmittedData: any, userId: number) {
+  /**
+   * function to add user
+   * @param: formSubmittedData Data submitted by user
+   * @param: userId id of the user
+   */
+  submitUserData(formSubmittedData: any, userId: number) {
 
     const fieldsToSubmit = [
-      'fname',
-      'lname',
-      'email',
-      'location',
-      'phone',
-      'tag',
-      'about',
-      'date',
-      'scpeciality',
-      'transportation',
-      'languages',
-      'work',
-      'education',
-      'userType',
-    ];
-
-    const fieldsToSubmit2 = [
       'first_name',
       'last_name',
       'email',
@@ -90,48 +78,35 @@ export class UserService {
       'mobile_number',
       'tagline',
       'about',
-      'userSkills',
       'birth_date',
-      'profile_pic',
-      'cover_pic',
     ];
 
-    const formSubmittedData2 = formSubmittedData;
-    formSubmittedData2['first_name'] = formSubmittedData['fname'];
-    formSubmittedData2['last_name'] = formSubmittedData['lname'];
-    formSubmittedData2['isFixer'] = formSubmittedData['userType'];
-    formSubmittedData2['mobile_number'] = formSubmittedData['phone'];
-    formSubmittedData2['tagline'] = formSubmittedData['tag'];
-    formSubmittedData2['birth_date'] = formSubmittedData['date'];
+    const userformData: FormData = new FormData();
 
-    console.log(formSubmittedData2)
-
-    const userformData: any = [];
+    userformData.append('profile_pic', 'test-photo');
+    userformData.append('cover_pic', 'test-photo');
 
     // prepare form data to be submitted
     _.each(fieldsToSubmit, function (field) {
-      userformData.push(field, formSubmittedData2[field]);
+      userformData.append(field, formSubmittedData[field])
     });
 
+    userformData.append('userSkills',
+     `${formSubmittedData['transportation']}
+            ${formSubmittedData['languages']}
+            ${formSubmittedData['work']}
+            ${formSubmittedData['education']}
+            ${formSubmittedData['scpeciality']}`);
 
     if (userId) {
       formSubmittedData.id = userId;
-      userformData.push('user_id', formSubmittedData2['id']);
+      userformData.append('user_id', formSubmittedData['id']);
     }
 
-    userformData.push('asPoster', '0');
-
-    console.log(userformData)
+    userformData.append('asPoster', '0');
 
     // prepare post request to be sent
-    return this._http.post(AppSettings.API_ENDPOINT + 'admin/user/handle', userformData).map((res: Response) => {
-      return res.json();
-    })
-      .catch((error: any) => {
-        if (error.status > 400 || error.status === 500) {
-          return Observable.throw(new Error(error.json()));
-        }
-      });
+    return this._http.postWithProgress(AppSettings.API_ENDPOINT + 'admin/user/handle', userformData);
   }
 
   /**
@@ -139,10 +114,11 @@ export class UserService {
    *  @param userId id of the user
    *  **/
   onChangePassword(userId) {
-    const userStatusParams = Qs.stringify({ "user_id": userId });
+    const userStatusParams = Qs.stringify({ 'user_id': userId });
     const headers = new Headers();
     headers.append('Content-Type', 'multipart/form-data');
-    return this._http.post(AppSettings.API_ENDPOINT + `admin/user/resetpassword`, userStatusParams).map((res: Response) => { return res.json() })
+    return this._http.post(AppSettings.API_ENDPOINT + `admin/user/resetpassword`, userStatusParams)
+                     .map((res: Response) => res.json() )
       .catch((error: any) => {
         if (error.status > 400 || error.status === 500) {
           return Observable.throw(new Error(error.json()));

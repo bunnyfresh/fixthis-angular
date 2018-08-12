@@ -34,7 +34,6 @@ export class PasswordButtonComponent implements OnInit {
       showCloseButton: false,
       bodyOutputType: BodyOutputType.TrustedHtml,
     };
-    alert('Mail sent!');
 
     const uploadFileSubscription = this._userService.onChangePassword(this.renderValue).subscribe(response => {
       if (response.status == '200') {

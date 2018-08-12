@@ -9,21 +9,21 @@
         </div>
       </div>
       <div class="form-group row">
-        <label for="fname" class="col-sm-3 col-form-label">First Name</label>
+        <label for="first_name" class="col-sm-3 col-form-label">First Name</label>
         <div class="col-sm-9">
-          <input type="text" class="form-control" id="fname" formControlName="fname" placeholder="First Name">
+          <input type="text" class="form-control" id="first_name" formControlName="first_name" placeholder="First Name">
         </div>
       </div>
       <div class="form-group row">
-        <label for="lname" class="col-sm-3 col-form-label">Last name</label>
+        <label for="last_name" class="col-sm-3 col-form-label">Last name</label>
         <div class="col-sm-9">
-          <input type="text" class="form-control" id="lname" formControlName="lname" placeholder="Last name">
+          <input type="text" class="form-control" id="last_name" formControlName="last_name" placeholder="Last name">
         </div>
       </div>
       <div class="form-group row">
-        <label for="tag" class="col-sm-3 col-form-label">Tagline</label>
+        <label for="tagline" class="col-sm-3 col-form-label">Tagline</label>
         <div class="col-sm-9">
-          <input type="text" class="form-control" id="tag" formControlName="tag" placeholder="Tagline">
+          <input type="text" class="form-control" id="tagline" formControlName="tagline" placeholder="Tagline">
         </div>
       </div>
       <div class="form-group row">
@@ -33,9 +33,23 @@
         </div>
       </div>
       <div class="form-group row">
-        <label for="date" class="col-sm-3 col-form-label">Date of Birth</label>
+        <label for="birth_date" class="col-sm-3 col-form-label">Date of Birth</label>
         <div class="col-sm-9">
-          <input type="text" class="form-control" id="date" formControlName="date" placeholder="MM/DD/YYYY">
+          <input type="text" class="form-control" id="birth_date" formControlName="birth_date" placeholder="MM/DD/YYYY">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="role" class="col-sm-3 col-form-label">Role</label>
+        <div class="col-sm-9">
+          <select class="form-control" id="role">
+            <option>Admin</option>
+            <option>User</option>
+            <option>Super admin</option>
+            <option>Developer</option>
+            <option>Manager</option>
+            <option>Customer service</option>
+            <option>Marketing</option>
+          </select>
         </div>
       </div>
       <div class="form-group row" style="text-align: center;">
@@ -54,14 +68,14 @@
         <div class="col-sm-9">
           <div class="form-check">
             <label class="custom-control custom-radio">
-              <input type="radio" class="custom-control-input" value="Poster" name="userType" formControlName="userType" checked>
+              <input type="radio" class="custom-control-input" value="Poster" name="isFixer" formControlName="isFixer" checked>
               <span class="custom-control-indicator"></span>
               <span class="custom-control-description">Poster</span>
             </label>
           </div>
           <div class="form-check">
             <label class="custom-control custom-radio">
-              <input type="radio" class="custom-control-input" value="Fixer" name="userType" formControlName="userType">
+              <input type="radio" class="custom-control-input" value="Fixer" name="isFixer" formControlName="isFixer">
               <span class="custom-control-indicator"></span>
               <span class="custom-control-description">Fixer</span>
             </label>
@@ -80,9 +94,9 @@
         </div>
       </div>
       <div class="form-group row">
-        <label for="phone" class="col-sm-3 col-form-label">Phone</label>
+        <label for="mobile_number" class="col-sm-3 col-form-label">Phone</label>
         <div class="col-sm-9">
-          <input type="text" class="form-control" id="phone" formControlName="phone" placeholder="Phone">
+          <input type="text" class="form-control" id="mobile_number" formControlName="mobile_number" placeholder="Phone">
         </div>
       </div>
       <div class="form-group row" style="text-align: center;">

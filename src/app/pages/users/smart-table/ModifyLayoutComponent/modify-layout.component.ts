@@ -11,14 +11,14 @@ export class ModifyLayoutComponent implements OnInit {
 
   ngOnInit() {
     this.userHandlerForm = this._fb.group({
-      fname: new FormControl('', Validators.required),
-      lname: new FormControl('', Validators.required),
+      first_name: new FormControl('', Validators.required),
+      last_name: new FormControl('', Validators.required),
       email: new FormControl('', Validators.required),
       location: new FormControl('', Validators.required),
-      phone: new FormControl('', Validators.required),
-      tag: '',
+      mobile_number: new FormControl('', Validators.required),
+      tagline: '',
       about: '',
-      date: new FormControl('', Validators.required),
+      birth_date: new FormControl('', Validators.required),
       scpeciality: '',
       transportation: '',
       languages: '',
