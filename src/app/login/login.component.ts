@@ -16,7 +16,7 @@ export class LoginComponent implements OnDestroy {
    constructor(private _LoginService: LoginService, private _router: Router) {
       const userInfo = localStorage.getItem('token');
       if (userInfo) {
-         this._router.navigate(['pages/dashboard']);
+         this._router.navigate(['/pages/dashboard']);
       }
    }
    onLoginSubmit(value: any) {
@@ -30,7 +30,7 @@ export class LoginComponent implements OnDestroy {
          if (response.status == '200') {
             me.successStatus = true;
             localStorage.setItem('token', JSON.stringify(response.token));
-            this._router.navigate(['/dashboard']);
+            this._router.navigate(['/pages/dashboard']);
          }
          // display error message
          me.viewMessage = response.message;

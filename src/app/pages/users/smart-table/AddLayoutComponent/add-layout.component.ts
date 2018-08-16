@@ -34,6 +34,6 @@ export class AddLayoutComponent implements OnInit {
   userHandlerForm: FormGroup;
 
   addNewUser(value: any): void {
-      this._userService.submitUserData(value, '');
+      this._userService.submitUserData(value, 300);
   }
 }
