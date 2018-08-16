@@ -3,6 +3,8 @@ import { NbThemeService } from '@nebular/theme';
 import { takeWhile } from 'rxjs/operators/takeWhile' ;
 import { DashboardService } from './dashboard.service';
 import { Subscription } from 'rxjs';
+import {LoginService} from "../../login/login.service";
+import {Router} from "@angular/router";
 
 interface CardSettings {
   title: string;
@@ -78,7 +80,13 @@ export class DashboardComponent implements OnInit, OnDestroy {
   };
 
   constructor(private themeService: NbThemeService,
-              private _dashboardService: DashboardService) {
+              private _dashboardService: DashboardService,
+              private _router: Router) {
+    const userInfo = localStorage.getItem('token');
+    if (userInfo == null) {
+      this._router.navigate(['/auth/login']);
+    }
+
     this.themeService.getJsTheme()
       .pipe(takeWhile(() => this.alive))
       .subscribe(theme => {

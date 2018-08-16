@@ -2,17 +2,17 @@
     <nb-card>
       <nb-card-header>Modify user</nb-card-header>
       <nb-card-body>
-        <form [formGroup]="userHandlerForm" (ngSubmit)="modifyUser(userHandlerForm.value)">
+        <form [formGroup]="userHandlerForm">
           <div class="form-group row">
-            <label for="id" class="col-sm-3 col-form-label">Id</label>
+            <label for="femail" class="col-sm-3 col-form-label">Find-email</label>
             <div class="col-sm-9">
-              <input type="text" class="form-control" id="id" placeholder="User id">
+              <input type="text" class="form-control" id="femail" formControlName="femail" placeholder="User id">
             </div>
           </div>
 
           <div class="form-group row">
             <div class="offset-sm-3 col-sm-9">
-              <button class="btn btn-primary">Find</button>
+              <button class="btn btn-primary" (click)="getUserData(userHandlerForm.value)">Find</button>
               <button class="btn btn-info">Active</button>
             </div>
           </div>
@@ -152,7 +152,7 @@
 
           <div class="form-group row">
             <div class="offset-sm-3 col-sm-9">
-              <button type="submit" class="btn btn-primary">Save</button>
+              <button (click)="modifyUser(userHandlerForm.value)" class="btn btn-primary">Save</button>
             </div>
           </div>
         </form>
