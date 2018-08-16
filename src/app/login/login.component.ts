@@ -15,9 +15,20 @@ export class LoginComponent implements OnDestroy {
    successStatus: boolean;
    constructor(private _LoginService: LoginService, private _router: Router) {
       const userInfo = localStorage.getItem('token');
-      if (userInfo) {
-         this._router.navigate(['/pages/dashboard']);
-      }
+
+     this.subscription = this._LoginService.refresh(userInfo).subscribe(response => {
+         // check if login is authenticated or not
+         if (response.status == '200') {
+           this.successStatus = true;
+           localStorage.setItem('token', JSON.stringify(response.token));
+           this._router.navigate(['/pages/dashboard']);
+         }
+         // display error message
+         this.viewMessage = response.message;
+       },
+       err => {
+         this.viewMessage = 'Some error in authentication';
+       });
    }
    onLoginSubmit(value: any) {
       const me = this;

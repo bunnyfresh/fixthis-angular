@@ -29,4 +29,19 @@ export class LoginService {
             });
     }
 
+  refresh(token: string) {
+    const params = {token};
+    const headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    // var stringifiedParams = Qs.stringify(params);
+    return this._http.post(AppSettings.API_ENDPOINT + 'admin/refreshtoken', null, {
+      headers: headers,
+      body: JSON.stringify(params),
+    }).map((res: Response) => res.json())
+      .catch((error: any) => {
+        if (error.status > 400 || error.status === 500) {
+          return Observable.throw(new Error(error.json()));
+        }
+      });
+  }
 }
